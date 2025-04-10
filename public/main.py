@@ -2,23 +2,22 @@ from window import Window
 from Line import Line
 from Point import Point
 from Cell import Cell
-
+from Maze import Maze
 
 def main():
     win = Window(800, 600)
 
-    cell1 = Cell(50, 50, 100, 100, win)
+    x1 = 50
+    y1 = 50
 
-    cell2 = Cell(150, 50, 200, 100, win)
-    cell2.has_right_wall = False
+    num_rows = 10
+    num_cols = 10
+    cell_size_x = 50
+    cell_size_y = 50
 
-    cell3 = Cell(50, 150, 100, 200, win)
-    cell3.has_bottom_wall = False
-    cell3.has_left_wall = False
+    maze = Maze(x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win)
 
-    cell1.draw()
-    cell2.draw()
-    cell3.draw()
+    maze._create_cells()
 
     win.wait_for_close()
 

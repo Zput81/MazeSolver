@@ -2,7 +2,7 @@ from Point import Point
 from Line import Line
 
 class Cell:
-    def __init__(self, x1, y1, x2, y2,win):
+    def __init__(self, x1, y1, x2, y2, win):
         
         self.has_left_wall = True
         self.has_right_wall = True
@@ -41,5 +41,20 @@ class Cell:
             line = Line(p1, p2)
             self.__win.draw_line(line, "black")
 
+    def draw_move(self, to_cell, undo=False):
+        if undo:
+            color = "gray"
+        else:
+            color = "red"
+
+        center_self_x = (self.__x1 + self.__x2) / 2
+        center_self_y = (self.__y1 + self.__y2) / 2
         
-            
+        center_to_x = (to_cell.__x1 + to_cell.__x2) / 2
+        center_to_y = (to_cell.__y1 + to_cell.__y2) / 2
+
+        p1 = Point(center_self_x, center_self_y)
+        p2 = Point(center_to_x, center_to_y)
+
+        line = Line(p1, p2)
+        self.__win.draw_line(line, color)
