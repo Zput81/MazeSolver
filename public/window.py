@@ -29,4 +29,5 @@ class Window:
         self.__window_running = False
 
     def draw_line(self, line, fill_color):
+        
         line.draw(self.__canvas, fill_color)
